@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace RazorPagesMovie.Models
 {
@@ -27,7 +28,7 @@ namespace RazorPagesMovie.Models
                         ReleaseDate = DateTime.Parse("1989-2-12"),
                         Genre = "Romantic Comedy",
                         Price = 7.99M,
-                        Rating = "R"
+                        Rating = "R",
                     },
 
                     new Movie
@@ -69,6 +70,18 @@ namespace RazorPagesMovie.Models
                 context.Add(review3);
                 context.Add(review4);
                 context.Add(review5);
+
+                Movie updateWHMS = context.Movie.Where(m => m.Title == "When Harry Met Sally").First();
+                updateWHMS.Reviews.Add(review5);
+                updateWHMS.Reviews.Add(review2);
+
+                Movie updateGB = context.Movie.Where(m => m.Title == "Ghostbusters").First();
+                updateGB.Reviews.Add(review4);
+                updateGB.Reviews.Add(review1);
+                updateGB.Reviews.Add(review4);
+
+                Movie updateGB2 = context.Movie.Where(m => m.Title == "Ghostbusters 2").First();
+                updateGB2.Reviews.Add(review3);
 
                 context.SaveChanges();
             }

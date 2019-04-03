@@ -13,7 +13,6 @@ namespace RazorPagesMovie.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ReviewId = table.Column<int>(nullable: false),
                     Title = table.Column<string>(maxLength: 60, nullable: false),
                     ReleaseDate = table.Column<DateTime>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
@@ -31,24 +30,24 @@ namespace RazorPagesMovie.Migrations
                 {
                     ReviewId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ID = table.Column<int>(nullable: false),
-                    Score = table.Column<int>(nullable: false)
+                    Score = table.Column<int>(nullable: false),
+                    MovieID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Review", x => x.ReviewId);
                     table.ForeignKey(
-                        name: "FK_Review_Movie_ID",
-                        column: x => x.ID,
+                        name: "FK_Review_Movie_MovieID",
+                        column: x => x.MovieID,
                         principalTable: "Movie",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Review_ID",
+                name: "IX_Review_MovieID",
                 table: "Review",
-                column: "ID");
+                column: "MovieID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

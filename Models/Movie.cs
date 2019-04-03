@@ -10,9 +10,6 @@ namespace RazorPagesMovie.Models
     {
         public int ID { get; set; }
 
-        [ForeignKey("Review")]
-        public int ReviewId {get; set;}
-
         [StringLength(60, MinimumLength = 3)]
         [Required]
         public string Title { get; set; }
