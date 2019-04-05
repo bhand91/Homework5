@@ -45,11 +45,8 @@
             @Html.DisplayNameFor(model => model.Movie.Reviews)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Movie.Reviews)
-            @for(var i = 10; i <20; i++)
-            {<p> @i </p>}
             @foreach (var x in @Model.Movie.Reviews)
-            {<li> @x </li>}
+            {<li> @x</li>}
 
         </dd>
     </dl>

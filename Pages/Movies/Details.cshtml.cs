@@ -20,6 +20,8 @@ namespace RazorPagesMovie.Pages.Movies
 
         public Movie Movie { get; set; }
 
+        public List<Review> Reviews {get; set;}
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -28,6 +30,7 @@ namespace RazorPagesMovie.Pages.Movies
             }
 
             Movie = await _context.Movie.FirstOrDefaultAsync(m => m.ID == id);
+            //Reviews = await _context.Review.Where(r => r.Reviews.ID == id);
 
             if (Movie == null)
             {
