@@ -31,23 +31,23 @@ namespace RazorPagesMovie.Migrations
                     ReviewId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Score = table.Column<int>(nullable: false),
-                    MovieID = table.Column<int>(nullable: true)
+                    MovieId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Review", x => x.ReviewId);
                     table.ForeignKey(
-                        name: "FK_Review_Movie_MovieID",
-                        column: x => x.MovieID,
+                        name: "FK_Review_Movie_MovieId",
+                        column: x => x.MovieId,
                         principalTable: "Movie",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Review_MovieID",
+                name: "IX_Review_MovieId",
                 table: "Review",
-                column: "MovieID");
+                column: "MovieId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -9,7 +9,7 @@ using RazorPagesMovie.Models;
 namespace RazorPagesMovie.Migrations
 {
     [DbContext(typeof(RazorPagesMovieContext))]
-    [Migration("20190405042337_InitialCreate")]
+    [Migration("20190409162953_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,13 +50,13 @@ namespace RazorPagesMovie.Migrations
                     b.Property<int>("ReviewId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("MovieID");
+                    b.Property<int>("MovieId");
 
                     b.Property<int>("Score");
 
                     b.HasKey("ReviewId");
 
-                    b.HasIndex("MovieID");
+                    b.HasIndex("MovieId");
 
                     b.ToTable("Review");
                 });
@@ -65,7 +65,8 @@ namespace RazorPagesMovie.Migrations
                 {
                     b.HasOne("RazorPagesMovie.Models.Movie", "Movie")
                         .WithMany("Reviews")
-                        .HasForeignKey("MovieID");
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

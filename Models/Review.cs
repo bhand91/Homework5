@@ -13,8 +13,9 @@ namespace RazorPagesMovie.Models
         [Range(1,5)]
         public int Score {get; set;}
 
-
-        public Movie Movie {get; set;}
+        [Display(Name = "Movie")]
+        public int MovieId {get; set;} //FK
+        public Movie Movie {get; set;} //Navigation
 
     }
 }
