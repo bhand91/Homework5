@@ -46,12 +46,7 @@
             <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Movie.Reviews)</dt>
             <dd class="col-sm-1">@Html.DisplayFor(model => review.Score)</dd>
             <dt class="col-sm-9">
-            <form method="post">
-                <input type="hidden" asp-for="ReviewIdToDelete" value="@review.ReviewId" />
-                <input type="submit" asp-page-handler="DeleteReview" value="Delete Review" class="btn btn-danger btn-sm" />
-            </form>
             </dt>
-        }
     </dl>
 </div>
 <div>
