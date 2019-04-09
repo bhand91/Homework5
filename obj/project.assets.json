@@ -13286,11 +13286,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "u:\\CIDM3312\\Homework5\\Homework5\\RazorPagesMovie.csproj",
+      "projectUniqueName": "u:\\CIDM3312\\Homework5\\RazorPagesMovie.csproj",
       "projectName": "RazorPagesMovie",
-      "projectPath": "u:\\CIDM3312\\Homework5\\Homework5\\RazorPagesMovie.csproj",
+      "projectPath": "u:\\CIDM3312\\Homework5\\RazorPagesMovie.csproj",
       "packagesPath": "C:\\Users\\eh919353\\.nuget\\packages\\",
-      "outputPath": "u:\\CIDM3312\\Homework5\\Homework5\\obj\\",
+      "outputPath": "u:\\CIDM3312\\Homework5\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
